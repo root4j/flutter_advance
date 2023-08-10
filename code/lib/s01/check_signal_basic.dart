@@ -13,7 +13,7 @@ class CheckSignalBasic extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Verficar Señal Basico'),
+      home: const MyHomePage(title: 'Verificar Señal Basico'),
     );
   }
 }

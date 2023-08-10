@@ -16,7 +16,7 @@ class CheckSignalGet extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Verficar Señal Get'),
+      home: const MyHomePage(title: 'Verificar Señal Get'),
     );
   }
 }
