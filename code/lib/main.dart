@@ -10,6 +10,9 @@ import 's02/controllers/message_controller.dart';
 import 's02/local_notification.dart';
 import 's02/push_notification.dart';
 import 's02/workmanager_basic.dart';
+import 's03/firebase_login_basic.dart';
+import 's03/firebase_login_form.dart';
+import 's03/firebase_realtime_basic.dart';
 import 's03/firebase_widget.dart';
 
 // Metodos Dispatcher
@@ -30,7 +33,7 @@ Future<void> main() async {
     logPrinter: const PrettyPrinter(showColors: true),
   );
   // Clase que se ejecutara
-  var tipo = Tipos.flutterFireBasic;
+  var tipo = Tipos.flutterFireRealBasic;
   // Condicional de clases
   switch (tipo) {
     case Tipos.checkSignalBasic:
@@ -60,6 +63,21 @@ Future<void> main() async {
       await Firebase.initializeApp();
       runApp(const FirebaseWidget());
       break;
+    case Tipos.flutterFireAuthBasic:
+      // Iniciar Firebase
+      await Firebase.initializeApp();
+      runApp(const FirebaseLoginBasic());
+      break;
+    case Tipos.flutterFireAuthForm:
+      // Iniciar Firebase
+      await Firebase.initializeApp();
+      runApp(const FirebaseLoginForm());
+      break;
+    case Tipos.flutterFireRealBasic:
+      // Iniciar Firebase
+      await Firebase.initializeApp();
+      runApp(const FirebaseRealtimeBasic());
+      break;
     default:
       runApp(const CheckSignalBasic());
       break;
@@ -73,5 +91,8 @@ enum Tipos {
   localNotification,
   pushNotification,
   backgroundTaskMessage,
-  flutterFireBasic
+  flutterFireBasic,
+  flutterFireAuthBasic,
+  flutterFireAuthForm,
+  flutterFireRealBasic,
 }
