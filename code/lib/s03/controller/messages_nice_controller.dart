@@ -5,9 +5,9 @@ import 'package:get/get.dart';
 
 import '../model/message.dart';
 
-class MessagesController extends GetxController {
+class MessagesNiceController extends GetxController {
   // Contante
-  final String _dbName = "messages";
+  final String _dbName = "messages_nice";
   // Mi varible reactiva
   var messages = <Message>[].obs;
   // Variables de Firebase Database

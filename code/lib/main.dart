@@ -13,6 +13,7 @@ import 's02/workmanager_basic.dart';
 import 's03/firebase_login_basic.dart';
 import 's03/firebase_login_form.dart';
 import 's03/firebase_realtime_basic.dart';
+import 's03/firebase_realtime_visual.dart';
 import 's03/firebase_widget.dart';
 
 // Metodos Dispatcher
@@ -33,7 +34,7 @@ Future<void> main() async {
     logPrinter: const PrettyPrinter(showColors: true),
   );
   // Clase que se ejecutara
-  var tipo = Tipos.flutterFireRealBasic;
+  var tipo = Tipos.flutterFireRealVisual;
   // Condicional de clases
   switch (tipo) {
     case Tipos.checkSignalBasic:
@@ -78,6 +79,11 @@ Future<void> main() async {
       await Firebase.initializeApp();
       runApp(const FirebaseRealtimeBasic());
       break;
+    case Tipos.flutterFireRealVisual:
+      // Iniciar Firebase
+      await Firebase.initializeApp();
+      runApp(const FirebaseRealtimeVisual());
+      break;
     default:
       runApp(const CheckSignalBasic());
       break;
@@ -95,4 +101,5 @@ enum Tipos {
   flutterFireAuthBasic,
   flutterFireAuthForm,
   flutterFireRealBasic,
+  flutterFireRealVisual,
 }
