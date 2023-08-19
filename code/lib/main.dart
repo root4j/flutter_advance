@@ -15,6 +15,7 @@ import 's03/firebase_login_form.dart';
 import 's03/firebase_realtime_basic.dart';
 import 's03/firebase_realtime_visual.dart';
 import 's03/firebase_widget.dart';
+import 's04/firebase_firestore.dart';
 
 // Metodos Dispatcher
 void callbackDispatcherMessage() async {
@@ -34,7 +35,7 @@ Future<void> main() async {
     logPrinter: const PrettyPrinter(showColors: true),
   );
   // Clase que se ejecutara
-  var tipo = Tipos.flutterFireRealVisual;
+  var tipo = Tipos.flutterFirestore;
   // Condicional de clases
   switch (tipo) {
     case Tipos.checkSignalBasic:
@@ -84,6 +85,11 @@ Future<void> main() async {
       await Firebase.initializeApp();
       runApp(const FirebaseRealtimeVisual());
       break;
+    case Tipos.flutterFirestore:
+      // Iniciar Firebase
+      await Firebase.initializeApp();
+      runApp(const FirebaseFirestore());
+      break;
     default:
       runApp(const CheckSignalBasic());
       break;
@@ -102,4 +108,5 @@ enum Tipos {
   flutterFireAuthForm,
   flutterFireRealBasic,
   flutterFireRealVisual,
+  flutterFirestore
 }

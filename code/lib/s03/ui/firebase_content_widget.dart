@@ -1,12 +1,8 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:loggy/loggy.dart';
 
 import '../controller/auth_controller.dart';
-import '../controller/messages_nice_controller.dart';
-import '../model/message.dart';
 import 'firebase_message_widget.dart';
 
 class FirebaseContentWidget extends StatefulWidget {
