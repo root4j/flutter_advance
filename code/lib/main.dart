@@ -16,6 +16,8 @@ import 's03/firebase_realtime_basic.dart';
 import 's03/firebase_realtime_visual.dart';
 import 's03/firebase_widget.dart';
 import 's04/firebase_firestore.dart';
+import 's05/ui/geo_location_basic.dart';
+import 's06/firebase_geo_location.dart';
 
 // Metodos Dispatcher
 void callbackDispatcherMessage() async {
@@ -35,7 +37,7 @@ Future<void> main() async {
     logPrinter: const PrettyPrinter(showColors: true),
   );
   // Clase que se ejecutara
-  var tipo = Tipos.flutterFirestore;
+  var tipo = Tipos.firebaseGeoLocation;
   // Condicional de clases
   switch (tipo) {
     case Tipos.checkSignalBasic:
@@ -90,6 +92,14 @@ Future<void> main() async {
       await Firebase.initializeApp();
       runApp(const FirebaseFirestore());
       break;
+    case Tipos.flutterGeoLocationBasic:
+      runApp(const GeoLocationBasic());
+      break;
+    case Tipos.firebaseGeoLocation:
+      // Iniciar Firebase
+      await Firebase.initializeApp();
+      runApp(const FirebaseGeoLocation());
+      break;
     default:
       runApp(const CheckSignalBasic());
       break;
@@ -108,5 +118,7 @@ enum Tipos {
   flutterFireAuthForm,
   flutterFireRealBasic,
   flutterFireRealVisual,
-  flutterFirestore
+  flutterFirestore,
+  flutterGeoLocationBasic,
+  firebaseGeoLocation
 }

@@ -36,16 +36,16 @@ class _PersonFormWidgetState extends State<PersonFormWidget> {
           _addressCtrl.text.isEmpty) {
         util.showError(
             "Validación", "Todos los campos deben ser diligenciados!");
-        _idCtrl.clear();
-        _nameCtrl.clear();
-        _mailCtrl.clear();
-        _phoneCtrl.clear();
-        _addressCtrl.clear();
       } else {
         var person = Person(_idCtrl.text, _nameCtrl.text, _mailCtrl.text,
             _phoneCtrl.text, _addressCtrl.text);
         await pCtrl.addPerson(person, aCtrl.getMail());
         util.showInfo("Creación", "Persona creada exitosamente!");
+        _idCtrl.clear();
+        _nameCtrl.clear();
+        _mailCtrl.clear();
+        _phoneCtrl.clear();
+        _addressCtrl.clear();
       }
     } catch (e) {
       util.showError("Error ", "Error $e");

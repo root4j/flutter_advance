@@ -89,7 +89,6 @@ class _PersonListWidgetState extends State<PersonListWidget> {
           pCtrl.persons.sort((((a, b) => a.date.compareTo(b.date))));
           return ListView.builder(
             itemCount: pCtrl.persons.length,
-            //controller: _scrollCtrl,
             itemBuilder: ((context, index) {
               var per = pCtrl.persons[index];
               return _personCard(per);
