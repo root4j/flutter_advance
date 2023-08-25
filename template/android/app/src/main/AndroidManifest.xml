@@ -1,13 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.app">
-    <!-- Permisos para localización -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <!-- Permisos para camara -->
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <!-- Esto se genera automaticamente -->
+    package="net.root4j.app.template">
     <application
-        android:label="Flutter App"
+        android:label="App Template"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

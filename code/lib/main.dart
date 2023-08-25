@@ -1,3 +1,4 @@
+import 'package:camera/camera.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -18,6 +19,7 @@ import 's03/firebase_widget.dart';
 import 's04/firebase_firestore.dart';
 import 's05/ui/geo_location_basic.dart';
 import 's06/firebase_geo_location.dart';
+import 's07/camera_app.dart';
 
 // Metodos Dispatcher
 void callbackDispatcherMessage() async {
@@ -37,7 +39,7 @@ Future<void> main() async {
     logPrinter: const PrettyPrinter(showColors: true),
   );
   // Clase que se ejecutara
-  var tipo = Tipos.firebaseGeoLocation;
+  var tipo = Tipos.camera;
   // Condicional de clases
   switch (tipo) {
     case Tipos.checkSignalBasic:
@@ -100,6 +102,19 @@ Future<void> main() async {
       await Firebase.initializeApp();
       runApp(const FirebaseGeoLocation());
       break;
+    case Tipos.camera:
+      // Iniciar Firebase
+      await Firebase.initializeApp();
+      // Obtener camaras del dispositivo
+      final cameras = await availableCameras();
+      // Obtener la camara principal
+      final mainCamera = cameras.first;
+      runApp(
+        CameraApp(
+          camera: mainCamera,
+        ),
+      );
+      break;
     default:
       runApp(const CheckSignalBasic());
       break;
@@ -120,5 +135,6 @@ enum Tipos {
   flutterFireRealVisual,
   flutterFirestore,
   flutterGeoLocationBasic,
-  firebaseGeoLocation
+  firebaseGeoLocation,
+  camera
 }
